@@ -33,11 +33,17 @@ end
 
 # recursively call the adder function
 adder = lambda do |acc, arr|
+  puts "Outer lambda scope -> acc: #{acc}, arr: #{arr}"
   if arr.empty?
+    puts "Final accumulator value -> 16, arr: #{arr}"
+    puts "\n** ---------------------------------- **\n\n"
     acc
   else
+    puts "Else pre-recursion -> acc: #{acc}, arr: #{arr}"
     adder.call(acc + arr.first, arr.drop(1)) # does call take two params?
+    puts "Else post-recursion -> acc: #{acc}, arr: #{arr}"
   end
+  puts "End of outer lambda -> acc: #{acc}, arr: #{arr}"
 end
 
 # -----------
